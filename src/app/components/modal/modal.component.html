@@ -1,0 +1,86 @@
+<h1 mat-dialog-title>Create a new report</h1>
+<div mat-dialog-content>
+    <form [formGroup]="reportForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" type="text" matInput placeholder="Enter your name">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>John Doe</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+1 &nbsp;</span>
+            <input formControlName="phoneNumber" type="tel" matInput placeholder="555-555-1234">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Pig Breed</mat-label>
+            <mat-select formControlName="breed" [(value)]="selected">
+              <mat-option value="unknown">Unknown</mat-option>
+              <mat-option value="pot bellied">Pot Bellied</mat-option>
+              <mat-option value="grey streaked">Grey Streak</mat-option>
+              <mat-option value="buttered can">Buttered Can</mat-option>
+              <mat-option value="dynasty noise">Dynasty Noise</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Pig Id</mat-label>
+            <input formControlName="pid" type="number" matInput placeholder="Id">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>0</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Location</mat-label>
+            <input formControlName="location" type="text" matInput placeholder="Enter location name">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Downtown Van</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Location (Longitude)</mat-label>
+            <input formControlName="longitude" type="number" matInput placeholder="longitude">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>0</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Location (Latitude)</mat-label>
+            <input formControlName="latitude" type="number" matInput placeholder="latitude">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>0</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Extra Notes</mat-label>
+            <textarea formControlName="extraNotes" matInput></textarea>
+          </mat-form-field>
+          
+
+          <mat-form-field appearance="outline">
+            <mat-label>Time</mat-label>
+            <input formControlName="time" type="time" matInput placeholder="time picked up?">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Choose a date</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+      
+          
+      </form>
+        
+</div>
+
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addReport()">Add</button>
+</div>
+
